@@ -1,6 +1,6 @@
 import PIXI from 'pixi.js'
 
-import { Renderer } from './renderer'
+import { Renderer } from './canvas/renderer'
 
 let nav = document.getElementById("nav")
 let footer = document.getElementById("footer")
