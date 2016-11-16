@@ -1,24 +1,15 @@
-# README
+[![Build Status](https://travis-ci.org/andreasknoepfle/treasures.io.svg?branch=master)](https://travis-ci.org/andreasknoepfle/treasures.io)
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+# Install
 
-Things you may want to cover:
+1. Install Node with nvm https://github.com/creationix/nvm
+2. Install Ruby with rbenv https://github.com/rbenv/rbenv
+3. Install Yarn https://yarnpkg.com/en/docs/install
+4. Install bundler `gem install bundler`
+5. Install gems `bundle install`
+6. Install Node deps `yarn`
+7. Compile assets for the first time `yarn run brunch build`
 
-* Ruby version
+# Run
+`rails s`
 
-* System dependencies
-
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
