@@ -8,4 +8,6 @@ before_install:
   - sudo apt-get update -qq
   - sudo apt-get install -y -qq yarn
   - yarn
-install: yarn run brunch build
+install:
+  - yarn run brunch build
+  - bundle install
