@@ -1,10 +1,16 @@
-import { WorldMap } from './world_map'
+import { Stage } from './stage'
 
 export class Renderer {
   constructor(element, verticalSiblings) {
     this.element = element
     this.verticalSiblings = verticalSiblings
+    PIXI.loader
+      .add("spritesheet.json")
+      .load(this.setup.bind(this));
+    this
+  }
 
+  setup() {
     // Create the renderer
     this.renderer = PIXI.autoDetectRenderer(this.element.offsetWidth, this.mapfillHeight())
 
@@ -13,13 +19,12 @@ export class Renderer {
     this.renderer.backgroundColor = 0x2980b9
 
     // Add the world map
-    this.stage = new WorldMap()
+    this.stage = new Stage()
 
     this.renderer.autoResize = true
 
     window.addEventListener('resize', this.resize.bind(this))
     requestAnimationFrame(this.update.bind(this))
-
     this
   }
 
@@ -28,7 +33,7 @@ export class Renderer {
   }
 
   update() {
-    this.stage.update()
+    this.stage.update(this.element.offsetWidth, this.mapfillHeight())
     this.renderer.render(this.stage)
 
     requestAnimationFrame(this.update.bind(this))

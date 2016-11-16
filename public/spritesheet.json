@@ -1,0 +1,17 @@
+{
+	"meta": {
+		"image": "spritesheet.png",
+		"size": {"w":200,"h":159},
+		"scale": "1"
+	},
+	"frames": {
+		"boat.png":
+		{
+			"frame": {"x":0,"y":0,"w":200,"h":159},
+			"rotated": false,
+			"trimmed": false,
+			"spriteSourceSize": {"x":0,"y":0,"w":200,"h":159},
+			"sourceSize": {"w":200,"h":159}
+		}
+	}
+}
