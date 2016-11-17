@@ -10,6 +10,10 @@ gem 'puma', '~> 3.0'
 gem 'npm-pipeline-rails'
 gem 'slim'
 
+group :test do
+  gem 'codecov', require: false
+end
+
 group :development, :test do
 
 end
