@@ -1,5 +1,5 @@
 [![Build Status](https://travis-ci.org/andreasknoepfle/treasures.io.svg?branch=master)](https://travis-ci.org/andreasknoepfle/treasures.io)
-
+[![Code Climate](https://codeclimate.com/github/andreasknoepfle/treasures.io/badges/gpa.svg)](https://codeclimate.com/github/andreasknoepfle/treasures.io)
 # Install
 
 1. Install Node with nvm https://github.com/creationix/nvm
