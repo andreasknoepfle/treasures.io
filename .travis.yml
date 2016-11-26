@@ -13,5 +13,6 @@ install:
   - bundle install
 cache:
   bundler: true
+  yarn: true
   directories:
   - node_modules # NPM packages

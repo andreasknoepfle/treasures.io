@@ -2,16 +2,26 @@
 [![Code Climate](https://codeclimate.com/github/andreasknoepfle/treasures.io/badges/gpa.svg)](https://codeclimate.com/github/andreasknoepfle/treasures.io)
 [![codecov](https://codecov.io/gh/andreasknoepfle/treasures.io/branch/master/graph/badge.svg)](https://codecov.io/gh/andreasknoepfle/treasures.io)
 
-# Install
+# Prerequisites
 
 1. Install Node with nvm https://github.com/creationix/nvm
 2. Install Ruby with rbenv https://github.com/rbenv/rbenv
-3. Install Yarn https://yarnpkg.com/en/docs/install
-4. Install bundler `gem install bundler`
-5. Install gems `bundle install`
-6. Install Node deps `yarn`
-7. Compile assets for the first time `yarn run brunch build`
+3. Install Cairo (used by the `canvas` npm package)
+`sudo apt-get install libcairo2-dev libjpeg-dev libgif-dev`
+4. Install Yarn https://yarnpkg.com/en/docs/install
+5. Install bundler `gem install bundler`
+
+# Install
+
+1. Install gems `bundle install`
+2. Install Node deps `yarn`
+3. Compile assets for the first time `yarn run brunch build`
 
 # Run
 `rails s`
 
+# Run ruby test
+`rake` or `rspec`
+
+# Run JS tests
+`yarn test`
