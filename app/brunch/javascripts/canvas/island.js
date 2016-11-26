@@ -1,3 +1,5 @@
+
+
 export class Island extends PIXI.Graphics {
   constructor() {
     super()
@@ -16,7 +18,5 @@ export class Island extends PIXI.Graphics {
     this.y = 60
     this.width = 300
     this.height = 300
-
-    this
   }
 }
