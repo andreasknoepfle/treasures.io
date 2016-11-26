@@ -1,3 +1,4 @@
+use 'esversion: 6'
 import { WorldMap } from './world_map'
 import { Boat } from './boat'
 

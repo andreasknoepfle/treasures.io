@@ -1,3 +1,4 @@
+use 'esversion: 6'
 import { Stage } from './stage'
 
 export class Renderer {

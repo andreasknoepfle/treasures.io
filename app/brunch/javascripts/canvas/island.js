@@ -1,3 +1,5 @@
+use 'esversion: 6'
+
 export class Island extends PIXI.Graphics {
   constructor() {
     super()
