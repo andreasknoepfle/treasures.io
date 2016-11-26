@@ -1,3 +1,4 @@
+[![Stories in Ready](https://badge.waffle.io/andreasknoepfle/treasures.io.png?label=ready&title=Ready)](https://waffle.io/andreasknoepfle/treasures.io)
 [![Build Status](https://travis-ci.org/andreasknoepfle/treasures.io.svg?branch=master)](https://travis-ci.org/andreasknoepfle/treasures.io)
 [![Code Climate](https://codeclimate.com/github/andreasknoepfle/treasures.io/badges/gpa.svg)](https://codeclimate.com/github/andreasknoepfle/treasures.io)
 [![codecov](https://codecov.io/gh/andreasknoepfle/treasures.io/branch/master/graph/badge.svg)](https://codecov.io/gh/andreasknoepfle/treasures.io)
