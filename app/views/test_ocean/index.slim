@@ -1,0 +1,24 @@
+canvas id="myCanvas" width="1000" height="1000"
+
+javascript: 
+  var poly=[ #{@ocean[:islands].first[:points_outline].map{ |i| "#{i.first}, #{i.last}" }.join(",")}];
+  var poly_2=[ #{@ocean[:islands].first[:points_inline].map{ |i| "#{i.first}, #{i.last}" }.join(",")}];
+  var canvas=document.getElementById("myCanvas")
+  var ctx = canvas.getContext('2d');
+  ctx.fillStyle = '#f39c12';
+
+  ctx.beginPath();
+  ctx.moveTo(poly[0], poly[1]);
+  for( item=2 ; item < poly.length-1 ; item+=2 ){ctx.lineTo( poly[item] , poly[item+1] )}
+
+  ctx.closePath();
+  ctx.fill();
+  
+  ctx.fillStyle = '#27ae60';
+
+  ctx.beginPath();
+  ctx.moveTo(poly_2[0], poly_2[1]);
+  for( item=2 ; item < poly_2.length-1 ; item+=2 ){ctx.lineTo( poly_2[item] , poly_2[item+1] )}
+
+  ctx.closePath();
+  ctx.fill();
