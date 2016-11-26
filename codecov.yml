@@ -19,14 +19,14 @@ coverage:
     changes:
       default:
         target: 100
-parsers:
-  v1:
-    include_full_missed_files: true  # default false
-  gcov:
-    branch_detection:
-      conditional: true
-      loop: true
-      macro: false
-      method: false
-  javascript:
-    enable_partials: false
+  parsers:
+    v1:
+      include_full_missed_files: true  # default false
+    gcov:
+      branch_detection:
+        conditional: true
+        loop: true
+        macro: false
+        method: false
+    javascript:
+      enable_partials: false
