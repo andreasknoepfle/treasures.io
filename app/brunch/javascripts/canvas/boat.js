@@ -1,3 +1,5 @@
+
+
 import { LoadedSprite } from './loaded_sprite'
 
 export class Boat extends LoadedSprite {
@@ -5,7 +7,6 @@ export class Boat extends LoadedSprite {
     super("boat.png")
     this.scale.x = 0.5
     this.scale.y = 0.5
-    this
   }
 
   update(width, height) {

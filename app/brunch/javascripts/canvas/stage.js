@@ -1,3 +1,4 @@
+
 import { WorldMap } from './world_map'
 import { Boat } from './boat'
 
@@ -8,7 +9,6 @@ export class Stage extends PIXI.Container {
     this.boat = new Boat()
     this.addChild(this.worldMap)
     this.addChild(this.boat)
-    this
   }
 
   update(width, height) {
