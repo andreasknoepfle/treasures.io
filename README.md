@@ -6,6 +6,7 @@
 
 1. Install Node with nvm https://github.com/creationix/nvm
 2. Install Ruby with rbenv https://github.com/rbenv/rbenv
+- Get build requirements for ruby-build from here https://github.com/rbenv/ruby-build/wiki#troubleshooting 
 3. Install Cairo (used by the `canvas` npm package)
 `sudo apt-get install libcairo2-dev libjpeg-dev libgif-dev`
 4. Install Yarn https://yarnpkg.com/en/docs/install
