@@ -1,4 +1,4 @@
-use 'esversion: 6'
+
 
 import 'pixi.js'
 import { Boat } from '../../../app/brunch/javascripts/canvas/boat'

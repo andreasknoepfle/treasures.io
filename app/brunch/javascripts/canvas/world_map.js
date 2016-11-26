@@ -1,4 +1,4 @@
-use 'esversion: 6'
+
 import {Island} from './island'
 import {keyboard} from './keyboard'
 

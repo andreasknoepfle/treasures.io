@@ -1,4 +1,4 @@
-use 'esversion: 6'
+
 import PIXI from 'pixi.js'
 
 import { Renderer } from './canvas/renderer'

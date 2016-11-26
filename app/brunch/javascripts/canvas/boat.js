@@ -1,4 +1,4 @@
-use 'esversion: 6'
+
 
 import { LoadedSprite } from './loaded_sprite'
 
