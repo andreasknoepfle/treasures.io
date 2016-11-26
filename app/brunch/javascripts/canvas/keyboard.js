@@ -9,9 +9,9 @@ let keyboard = function(keyCode) {
 
   key.handler = function(event, callback) {
     if (event.keyCode === key.code) {
-      callback()
+      event.preventDefault()
+      return callback()
     }
-    event.preventDefault()
   }
 
   //The `downHandler`
