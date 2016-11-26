@@ -25,7 +25,6 @@ export class Renderer {
 
     window.addEventListener('resize', this.resize.bind(this))
     requestAnimationFrame(this.update.bind(this))
-    this
   }
 
   resize() {

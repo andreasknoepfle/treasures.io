@@ -1,32 +1,27 @@
 
 // Taken from https://github.com/kittykatattack/learningPixi#keyboard
 
-let keyboard = function (keyCode) {
+let keyboard = function(keyCode) {
   var key = {}
   key.code = keyCode
-  key.isDown = false
-  key.isUp = true
   key.press = undefined
   key.release = undefined
 
-  //The `downHandler`
-  key.downHandler = function(event) {
+  key.handler = function(event, callback) {
     if (event.keyCode === key.code) {
-      if (key.isUp && key.press) key.press()
-      key.isDown = true
-      key.isUp = false
+      callback()
     }
     event.preventDefault()
   }
 
+  //The `downHandler`
+  key.downHandler = function(event) {
+    key.handler(event, key.press)
+  }
+
   //The `upHandler`
   key.upHandler = function(event) {
-    if (event.keyCode === key.code) {
-      if (key.isDown && key.release) key.release()
-      key.isDown = false
-      key.isUp = true
-    }
-    event.preventDefault()
+    key.handler(event, key.release)
   }
 
   //Attach event listeners
