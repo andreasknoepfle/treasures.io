@@ -9,7 +9,7 @@
     "sprites": "spritesheet-js sprites/* -f pixi.js --p public",
     "test": "jasmine",
     "coverage": "nyc --all --reporter=lcov --reporter=text jasmine",
-    "report-coverage": "codecov"
+    "report-coverage": "nyc report --reporter=lcov > coverage.lcov && codecov"
   },
   "nyc": {
     "include": [

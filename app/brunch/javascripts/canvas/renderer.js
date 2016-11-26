@@ -7,7 +7,6 @@ export class Renderer {
     PIXI.loader
       .add("spritesheet.json")
       .load(this.setup.bind(this));
-    this
   }
 
   setup() {

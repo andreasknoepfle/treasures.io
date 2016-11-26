@@ -8,7 +8,6 @@ export class Stage extends PIXI.Container {
     this.boat = new Boat()
     this.addChild(this.worldMap)
     this.addChild(this.boat)
-    this
   }
 
   update(width, height) {
