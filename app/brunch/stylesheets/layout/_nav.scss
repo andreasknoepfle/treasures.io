@@ -1,18 +1,32 @@
 $nav-background: $secondary-background-color;
-$nav-height: 3em;
+$nav-height: 2em;
 $nav-color: $secondary-font-color;
 $nav-link-color: transparentize($nav-color, 0.3);
 
+@import url('https://fonts.googleapis.com/css?family=Amatic+SC');
+
 nav {
-  padding: $base-spacing;
+  padding: 0.5em $base-spacing;
   background-color: $nav-background;
   color: $nav-color;
 
-  border-bottom: 15px solid $secondary-background-shadow;
+  border-bottom: 0.2em solid $secondary-background-shadow;
 
   min-height: $nav-height;
   width: 100%;
   z-index: 9999;
+
+  logo a {
+    font-family: 'Amatic SC', cursive;
+    color: $nav-link-color;
+    text-decoration: none;
+    font-size: 4em;
+    line-height: 0.7em;
+    &:focus,
+    &:hover {
+      color: transparentize($nav-color, 0);
+    }
+  }
 
   ul li a {
     color: $nav-link-color;
