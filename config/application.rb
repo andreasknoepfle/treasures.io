@@ -20,9 +20,6 @@ Bundler.require(*Rails.groups)
 module InternetOfIslands
   class Application < Rails::Application
     Rails.application.configure do
-
-      # Use Yarn for assets bundling
-      config.npm.install = ['yarn']
     end
   end
 end
