@@ -63,3 +63,4 @@ bower.json
 
 # nyc
 .nyc_output
+.DS_Store
