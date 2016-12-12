@@ -1,5 +1,7 @@
 import { LoadedSprite } from './loaded_sprite'
 
+const spriteMatrix = [[1, 0, 7], [2, -1, 6], [3, 4, 5]]
+
 export class Boat extends PIXI.Container {
   constructor() {
     super()
@@ -30,40 +32,12 @@ export class Boat extends PIXI.Container {
   }
 
   spriteNumber() {
-    switch(this.vy) {
-      case -1:
-        switch(this.vx) {
-          case -1:
-            return 1
-          case 0:
-            return 0
-          case 1:
-            return 7
-        }
-      case 0:
-        switch(this.vx) {
-          case -1:
-            return 2
-          case 0:
-            return -1
-          case 1:
-            return 6
-        }
-      case 1:
-        switch(this.vx) {
-          case -1:
-            return 3
-          case 0:
-            return 4
-          case 1:
-            return 5
-        }
-    }
+    return spriteMatrix[1 + this.vy][1 + this.vx]
   }
 
   sideNeedsChange(spriteIndex) {
-    return spriteIndex != -1 &&
-      spriteIndex != this.currentSpriteIndex
+    return spriteIndex !== -1 &&
+      spriteIndex !== this.currentSpriteIndex
   }
 
   loadSprites() {
