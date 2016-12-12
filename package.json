@@ -24,6 +24,7 @@
     "bourbon-neat": "^1.8.0",
     "brunch": "^2.9.1",
     "css-brunch": "^2.6.1",
+    "git-digest-brunch": "^1.0.3",
     "normalize.css": "^5.0.0",
     "pixi.js": "~4.0.0",
     "sass-brunch": "^2.7.0"
