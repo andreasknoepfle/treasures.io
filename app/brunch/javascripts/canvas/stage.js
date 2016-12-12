@@ -22,41 +22,43 @@ export class Stage extends PIXI.Container {
     this.boat.update(width, height)
   }
 
+  stopBoat(axis) {
+    this.worldMap[axis] = 0
+    this.boat[axis] = 0
+  }
+
+  moveBoat(axis, direction) {
+    this.worldMap[axis] = (-1 * direction) * 5
+    this.boat[axis] = direction
+  }
+
   setupKeyboard() {
     left.press = () => {
-      this.worldMap.vx = 5
-      this.boat.vx = -1
+      this.moveBoat('vx', -1)
     }
     left.release = () => {
-      this.worldMap.vx = 0
-      this.boat.vx = 0
+      this.stopBoat('vx')
     }
 
     up.press = () => {
-      this.worldMap.vy = 5
-      this.boat.vy = -1
+      this.moveBoat('vy', -1)
     }
     up.release = () => {
-      this.worldMap.vy = 0
-      this.boat.vy = 0
+      this.stopBoat('vy')
     }
 
     right.press = () => {
-      this.worldMap.vx = -5
-      this.boat.vx = 1
+      this.moveBoat('vx', 1)
     }
     right.release = () => {
-      this.worldMap.vx = 0
-      this.boat.vx = 0
+      this.stopBoat('vx')
     }
 
     down.press = () => {
-      this.worldMap.vy = -5
-      this.boat.vy = 1
+      this.moveBoat('vy', 1)
     }
     down.release = () => {
-      this.worldMap.vy = 0
-      this.boat.vy = 0
+      this.stopBoat('vy')
     }
   }
 }
