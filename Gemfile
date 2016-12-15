@@ -1,5 +1,7 @@
 source 'https://rubygems.org'
 
+gem 'byebug'
+gem 'better_errors'
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '~> 5.0.0', '>= 5.0.0.1'
 # Use Puma as the app server
@@ -13,7 +15,8 @@ group :test do
 end
 
 group :development, :test do
-
+  gem 'pry'
+  gem 'pry-rails'
 end
 
 group :development do
