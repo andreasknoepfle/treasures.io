@@ -1,9 +1,13 @@
-import PIXI from 'pixi.js'
+import Vue from 'vue';
+import 'pixi.js';
+import pixicanvas from './components/pixicanvas.jsx';
+import sidebar from './components/sidebar.jsx';
 
-import { Renderer } from './canvas/renderer'
-
-let nav = document.getElementById("nav")
-let footer = document.getElementById("footer")
-let map = document.getElementById("map")
-
-let renderer = new Renderer(map, [nav, footer])
+// eslint-disable-next-line no-unused-vars
+const vm = new Vue({
+  el: '#app',
+  components: {
+    pixicanvas,
+    sidebar
+  }
+});

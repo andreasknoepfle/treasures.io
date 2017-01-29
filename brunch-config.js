@@ -12,7 +12,10 @@ module.exports = {
   },
 
   npm: {
-    enabled: true
+    enabled: true,
+    aliases: {
+      vue: 'vue/dist/vue.common.js'
+    }
   },
 
   files: {
@@ -21,17 +24,22 @@ module.exports = {
   },
 
   plugins: {
-		sass: {
-			options: {
-				mode: 'native',
+    babel: {
+      presets: ['es2015'],
+      plugins: ['transform-vue-jsx'],
+      pattern: /\.(js|jsx)$/
+    },
+    sass: {
+      options: {
+        mode: 'native',
         includePaths: [
-        	'node_modules/bourbon/core',
+          'node_modules/bourbon/core',
           'node_modules/bourbon-neat/app/assets/stylesheets',
           'node_modules/normalize.css'
-      	],
+        ],
         precision: 8,
         sourceMapEmbed: true
-			}
-		}
-	}
-}
+      }
+    }
+  }
+};

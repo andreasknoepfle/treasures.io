@@ -1,1 +1,2 @@
-import 'jsdom-global/register'
+import 'canvas';
+import 'jsdom-global/register';
