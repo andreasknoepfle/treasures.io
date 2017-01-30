@@ -1,16 +1,18 @@
-import {Island} from './island'
+import Island from './island';
 
-export class WorldMap extends PIXI.Container {
+class WorldMap extends PIXI.Container {
   constructor() {
-    super()
-    this.backgroundColor = 0x2980b9
-    this.addChild(new Island())
-    this.vx = 0
-    this.vy = 0
+    super();
+    this.backgroundColor = 0x2980b9;
+    this.addChild(new Island());
+    this.vx = 0;
+    this.vy = 0;
   }
 
   update() {
-    this.x += this.vx
-    this.y += this.vy
+    this.x += this.vx;
+    this.y += this.vy;
   }
 }
+
+export default WorldMap;

@@ -29,6 +29,3 @@ script:
 # - yarn report-coverage
 cache:
   bundler: true
-  yarn: true
-  directories:
-  - node_modules # NPM packages

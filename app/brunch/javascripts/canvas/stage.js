@@ -1,64 +1,57 @@
-import { WorldMap } from './world_map'
-import { Boat } from './boat'
-import {keyboard} from './keyboard'
+import WorldMap from './world_map';
+import Boat from './boat';
+import keyboard from './keyboard';
 
-let left = keyboard(37)
-let up = keyboard(38)
-let right = keyboard(39)
-let down = keyboard(40)
+const left = {
+  keyCode: 37, axis: 'vx', direction: -1
+};
+const up = {
+  keyCode: 38, axis: 'vy', direction: -1
+};
+const right = {
+  keyCode: 39, axis: 'vx', direction: 1
+};
+const down = {
+  keyCode: 40, axis: 'vy', direction: 1
+};
+const controls = [left, up, down, right];
 
-export class Stage extends PIXI.Container {
+class Stage extends PIXI.Container {
   constructor() {
-    super()
-    this.worldMap = new WorldMap()
-    this.boat = new Boat()
-    this.addChild(this.worldMap)
-    this.addChild(this.boat)
-    this.setupKeyboard()
+    super();
+    this.worldMap = new WorldMap();
+    this.boat = new Boat();
+    this.addChild(this.worldMap);
+    this.addChild(this.boat);
+    this.setupKeyboard();
   }
 
   update(width, height) {
-    this.worldMap.update()
-    this.boat.update(width, height)
+    this.worldMap.update();
+    this.boat.update(width, height);
   }
 
   stopBoat(axis) {
-    this.worldMap[axis] = 0
-    this.boat[axis] = 0
+    this.worldMap[axis] = 0;
+    this.boat[axis] = 0;
   }
 
   moveBoat(axis, direction) {
-    this.worldMap[axis] = (-1 * direction) * 5
-    this.boat[axis] = direction
+    this.worldMap[axis] = (-1 * direction) * 5;
+    this.boat[axis] = direction;
   }
 
   setupKeyboard() {
-    left.press = () => {
-      this.moveBoat('vx', -1)
-    }
-    left.release = () => {
-      this.stopBoat('vx')
-    }
-
-    up.press = () => {
-      this.moveBoat('vy', -1)
-    }
-    up.release = () => {
-      this.stopBoat('vy')
-    }
-
-    right.press = () => {
-      this.moveBoat('vx', 1)
-    }
-    right.release = () => {
-      this.stopBoat('vx')
-    }
-
-    down.press = () => {
-      this.moveBoat('vy', 1)
-    }
-    down.release = () => {
-      this.stopBoat('vy')
-    }
+    controls.forEach(({ keyCode, axis, direction }) => {
+      const key = keyboard(keyCode);
+      key.press = () => {
+        this.moveBoat(axis, direction);
+      };
+      key.release = () => {
+        this.stopBoat(axis);
+      };
+    });
   }
 }
+
+export default Stage;

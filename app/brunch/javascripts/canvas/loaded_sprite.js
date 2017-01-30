@@ -1,6 +1,8 @@
-export class LoadedSprite extends PIXI.Sprite {
+class LoadedSprite extends PIXI.Sprite {
   constructor(image) {
-    let sprite = PIXI.loader.resources["spritesheet.json"].textures[image]
-    super(sprite)
+    const sprite = PIXI.loader.resources['spritesheet.json'].textures[image];
+    super(sprite);
   }
 }
+
+export default LoadedSprite;

@@ -9,7 +9,8 @@
     "sprites": "spritesheet-js sprites/*.png -f pixi.js --p public",
     "test": "jasmine",
     "coverage": "nyc --all --reporter=lcov --reporter=text jasmine",
-    "report-coverage": "nyc report --reporter=lcov > coverage.lcov && codecov"
+    "report-coverage": "nyc report --reporter=lcov > coverage.lcov && codecov",
+    "lint": "eslint app/brunch spec"
   },
   "nyc": {
     "include": [
@@ -17,24 +18,31 @@
     ]
   },
   "dependencies": {
-    "angular": "^1.5.8",
     "babel-brunch": "^6.0.6",
     "babel-plugin-istanbul": "^3.0.0",
     "bourbon": "^5.0.0-beta.6",
     "bourbon-neat": "^1.8.0",
     "brunch": "^2.9.1",
     "css-brunch": "^2.6.1",
+    "eslint": "^3.14.1",
     "git-digest-brunch": "^1.0.3",
     "normalize.css": "^5.0.0",
     "pixi.js": "~4.0.0",
-    "sass-brunch": "^2.7.0"
+    "sass-brunch": "^2.7.0",
+    "vue": "^2.1.10",
+    "vue-brunch": "^2.0.0"
   },
   "devDependencies": {
     "auto-reload-brunch": "^2.0.0",
+    "babel-helper-vue-jsx-merge-props": "^2.0.2",
+    "babel-plugin-syntax-jsx": "^6.18.0",
+    "babel-plugin-transform-vue-jsx": "^3.3.0",
     "babel-preset-es2015": "^6.18.0",
     "babel-register": "^6.18.0",
     "canvas": "^1.6.2",
     "codecov": "^1.0.1",
+    "eslint-config-bitcrowd-base": "^8.0.0",
+    "eslint-plugin-import": "^1.16.0",
     "jasmine": "^2.5.2",
     "javascript-brunch": "^2.0.0",
     "jsdom": "^9.8.3",

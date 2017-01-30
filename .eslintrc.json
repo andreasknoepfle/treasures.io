@@ -1,0 +1,21 @@
+{
+  "extends": "bitcrowd-base",
+  "root": true,
+  "parserOptions": {
+    "ecmaFeatures": {
+      "modules": true,
+      "jsx": true
+    }
+  },
+  "ecmaFeatures": {
+    "modules": true,
+    "jsx": true
+  },
+  "env": {
+    "browser": true
+  },
+  "globals": {
+    "PIXI": true,
+    "h": true
+  }
+}

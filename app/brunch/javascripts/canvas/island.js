@@ -1,12 +1,12 @@
-export class Island extends PIXI.Graphics {
+class Island extends PIXI.Graphics {
   constructor() {
-    super()
-    this.beginFill(0xf1c40f)
+    super();
+    this.beginFill(0xf1c40f);
 
-    //Use `drawPolygon` to define the triangle as
-    //a path array of x/y positions
+    // Use `drawPolygon` to define the triangle as
+    // a path array of x/y positions
 
-    let points = [
+    const points = [
       700.7149404212591, 576.9626025614907,
       701.2944474504599, 581.241318643671,
       700.3762972781252, 585.8153303683317,
@@ -655,12 +655,15 @@ export class Island extends PIXI.Graphics {
       710.8283165346156, 566.9764237368561,
       711.3457121697926, 571.8414675092047,
       707.0558813717352, 574.1938494667547,
-      703.1811544457389, 572.5630658521603]
-    this.drawPolygon(points)
+      703.1811544457389, 572.5630658521603];
 
-    this.x = 50
-    this.y = 60
-    this.width = 300
-    this.height = 300
+    this.drawPolygon(points);
+
+    this.x = 50;
+    this.y = 60;
+    this.width = 300;
+    this.height = 300;
   }
 }
+
+export default Island;
