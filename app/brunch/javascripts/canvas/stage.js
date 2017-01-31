@@ -27,17 +27,15 @@ class Stage extends PIXI.Container {
   }
 
   update(width, height) {
-    this.worldMap.update();
-    this.boat.update(width, height);
+    const offset = this.boat.update(width, height);
+    this.worldMap.update(offset);
   }
 
   stopBoat(axis) {
-    this.worldMap[axis] = 0;
     this.boat[axis] = 0;
   }
 
   moveBoat(axis, direction) {
-    this.worldMap[axis] = (-1 * direction) * 5;
     this.boat[axis] = direction;
   }
 

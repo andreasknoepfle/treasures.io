@@ -14,13 +14,26 @@ class Boat extends PIXI.Container {
   }
 
   update(width, height) {
-    this.x = (width - this.width) / 2;
-    this.y = (height - this.height) / 2;
-    const spriteIndex = this.spriteNumber();
+    this.updateSprite();
+    const previousX = this.x;
+    const previousY = this.y;
+    this.x = parseInt((width - this.width) / 2, 10);
+    this.y = parseInt((height - this.height) / 2, 10);
+    const offset = {
+      x: (this.x - previousX) - Boat.speed(this.vx),
+      y: (this.y - previousY) - Boat.speed(this.vy)
+    };
+    return offset;
+  }
 
-    if (this.sideNeedsChange(spriteIndex)) {
-      this.setSide(spriteIndex);
+  updateSprite() {
+    if (this.sideNeedsChange(this.spriteNumber())) {
+      this.setSide(this.spriteNumber());
     }
+  }
+
+  static speed(direction) {
+    return 5 * direction;
   }
 
   setSide(spriteIndex) {
