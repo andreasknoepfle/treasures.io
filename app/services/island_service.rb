@@ -3,7 +3,7 @@ class IslandService
 
   def initialize(position, size)
     @position = position
-    @size = size
+    @size = size / 2
   end
 
   def call

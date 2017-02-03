@@ -22,11 +22,11 @@ group :development, :test do
 end
 
 group :development do
-  gem 'rubocop', require: false
-  gem 'refills'
-  gem 'web-console'
   gem 'listen', '~> 3.0.5'
+  gem 'refills'
+  gem 'rubocop', require: false
   gem 'spring'
   gem 'spring-watcher-listen', '~> 2.0.0'
+  gem 'web-console'
 end
 gem 'rspec-rails', group: [:development, :test]

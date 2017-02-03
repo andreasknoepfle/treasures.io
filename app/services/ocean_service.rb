@@ -1,6 +1,6 @@
 class OceanService
   ISLAND_SCATTER_RADIUS = 200
-  CENTER = [500, 500]
+  CENTER = [500, 500].freeze
 
   def initialize(number_of_islands)
     @number_of_islands = number_of_islands
@@ -10,17 +10,16 @@ class OceanService
     { islands: islands }
   end
 
+  private
+
   def islands
-    if @number_of_islands.zero? || @number_of_islands.nil?
-      []
-    else
-      size = island_size
-      biggest_island_size = size.sort.last
-      generate_positions(biggest_island_size)
-        .each_with_index
-        .map do |position, i|
-        IslandService.new(position, size[1 - i]).call
-      end
+    return [] if @number_of_islands.zero?
+    size = island_size
+    biggest_island_size = size.sort.last
+    generate_positions(biggest_island_size)
+      .each_with_index
+      .map do |position, i|
+      IslandService.new(position, size[1 - i] * 2).call
     end
   end
 
@@ -33,19 +32,12 @@ class OceanService
   end
 
   def generate_positions(biggest_island_size)
-    if @number_of_islands == 1
-      [make_point]
-    elsif @number_of_islands == 2
-      loop do
-        points = [make_point, make_point]
-        return points if (2 * biggest_island_size) < distance(points)
-      end
-    else
-      polygon = Geometry::Polygon.regular_polygon(CENTER,
-                                                  ISLAND_SCATTER_RADIUS,
-                                                  @number_of_islands)
-      polygon.irregular_points
-    end
+    return [make_point] if @number_of_islands == 1
+    return two_positions(biggest_island_size) if @number_of_islands == 2
+    polygon = Geometry::Polygon.regular_polygon(CENTER,
+                                                ISLAND_SCATTER_RADIUS,
+                                                @number_of_islands)
+    polygon.irregular_points
   end
 
   def make_point
@@ -63,5 +55,12 @@ class OceanService
       end
     end
     sizes
+  end
+
+  def two_positions(biggest_island_size)
+    loop do
+      points = [make_point, make_point]
+      return points if (2 * biggest_island_size) < distance(points)
+    end
   end
 end

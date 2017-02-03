@@ -1,5 +1,9 @@
 AllCops:
-  Enabled: true
+  Exclude:
+    - 'vendor/**/*'
+    - 'node_modules/**/*'
+    - 'config/**/*'
+    - 'db/**/*'
 
 #################### Lint ################################
 
@@ -212,6 +216,11 @@ Metrics/AbcSize:
   Reference: 'http://c2.com/cgi/wiki?AbcMetric'
   Enabled: true
   Max: 20
+
+Metrics/BlockLength:
+  Enabled: true
+  Exclude:
+  - "**/*_spec.rb"
 
 Metrics/BlockNesting:
   Description: 'Avoid excessive block nesting'
