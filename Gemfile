@@ -1,5 +1,9 @@
 source 'https://rubygems.org'
 
+gem 'better_errors'
+gem 'binding_of_caller'
+gem 'byebug'
+
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '~> 5.0.0', '>= 5.0.0.1'
 # Use Puma as the app server
@@ -13,17 +17,16 @@ group :test do
 end
 
 group :development, :test do
-
+  gem 'pry'
+  gem 'pry-rails'
 end
 
 group :development do
-  gem "rubocop", require: false
-  gem "refills"
-  # Access an IRB console on exception pages or by using <%= console %> anywhere in the code.
-  gem 'web-console'
   gem 'listen', '~> 3.0.5'
-  # Spring speeds up development by keeping your application running in the background. Read more: https://github.com/rails/spring
+  gem 'refills'
+  gem 'rubocop', require: false
   gem 'spring'
   gem 'spring-watcher-listen', '~> 2.0.0'
+  gem 'web-console'
 end
-gem "rspec-rails", :group => [:development, :test]
+gem 'rspec-rails', group: [:development, :test]
