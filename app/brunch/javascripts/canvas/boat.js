@@ -1,3 +1,4 @@
+import PIXI from 'pixi.js';
 import LoadedSprite from './loaded_sprite';
 
 const spriteMatrix = [[1, 0, 7], [2, -1, 6], [3, 4, 5]];
@@ -13,12 +14,16 @@ class Boat extends PIXI.Container {
     this.setSide(6);
   }
 
-  update(width, height) {
+  update(screenWidth, screenHeight) {
     this.updateSprite();
+    return this.offset(screenWidth, screenHeight);
+  }
+
+  offset(screenWidth, screenHeight) {
     const previousX = this.x;
     const previousY = this.y;
-    this.x = parseInt((width - this.width) / 2, 10);
-    this.y = parseInt((height - this.height) / 2, 10);
+    this.x = parseInt((screenWidth - this.width) / 2, 10);
+    this.y = parseInt((screenHeight - this.height) / 2, 10);
     const offset = {
       x: (this.x - previousX) - Boat.speed(this.vx),
       y: (this.y - previousY) - Boat.speed(this.vy)

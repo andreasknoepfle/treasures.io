@@ -22,44 +22,67 @@ const boatSprites = [
 ];
 
 describe('Boat', () => {
+  let boat;
+
   beforeEach(() => {
     SpriteHelper.mockSprites(boatSprites);
+    boat = new Boat();
   });
 
   it('is a boat with loaded sprites', () => {
-    const boat = new Boat();
     expect(boat.shipSides.length).toEqual(8);
     expect(boat.shipShadows.length).toEqual(8);
   });
 
   it('the ship is setup to head to the right', () => {
-    const boat = new Boat();
     expect(boat.currentSpriteIndex).toEqual(6);
   });
 
   it('the ship does not move', () => {
-    const boat = new Boat();
     expect(boat.vx).toEqual(0);
     expect(boat.vy).toEqual(0);
   });
 
-  describe('updateSprite', () => {
+  describe('.speed', () => {
+    it('returns direction with factor 5', () => {
+      expect(Boat.speed(1)).toEqual(5);
+      expect(Boat.speed(-1)).toEqual(-5);
+    });
+  });
+
+  describe('#offset', () => {
+    it('sets the boat to be in the middle and returns the new offset', () => {
+      boat.width = 128;
+      boat.height = 128;
+      boat.x = 10;
+      boat.y = 10;
+      const offset = boat.offset(256, 255);
+      expect(boat.x).toEqual(64);
+      expect(boat.y).toEqual(63);
+      expect(offset.x).toEqual(54);
+      expect(offset.y).toEqual(53);
+    });
+  });
+
+  describe('#update', () => {
+    it('updates the sprite', () => {
+      spyOn(boat, 'updateSprite');
+      spyOn(boat, 'offset');
+      boat.vx = -1;
+      boat.update(10, 10);
+      expect(boat.updateSprite).toHaveBeenCalled();
+      expect(boat.offset).toHaveBeenCalledWith(10, 10);
+    });
+  });
+
+  describe('#updateSprite', () => {
     it('can head to the left', () => {
-      const boat = new Boat();
       boat.vx = -1;
       boat.updateSprite();
       expect(boat.currentSpriteIndex).toEqual(2);
     });
 
-    it('can head to the top', () => {
-      const boat = new Boat();
-      boat.vy = -1;
-      boat.updateSprite();
-      expect(boat.currentSpriteIndex).toEqual(0);
-    });
-
     it('can head to the top-left', () => {
-      const boat = new Boat();
       boat.vx = -1;
       boat.vy = -1;
       boat.updateSprite();
@@ -67,7 +90,6 @@ describe('Boat', () => {
     });
 
     it('keeps the last position if movement stops', () => {
-      const boat = new Boat();
       boat.vx = -1;
       boat.updateSprite();
       boat.vx = 0;
@@ -76,10 +98,26 @@ describe('Boat', () => {
     });
   });
 
-  describe('.speed', () => {
-    it('returns direction with factor 5', () => {
-      expect(Boat.speed(1)).toEqual(5);
-      expect(Boat.speed(-1)).toEqual(-5);
+  describe('#setSide', () => {
+    it('removes previous sprites and adds ship and shadow', () => {
+      spyOn(boat, 'removeChildren');
+      spyOn(boat, 'addChild');
+      boat.setSide(1);
+      expect(boat.removeChildren).toHaveBeenCalled();
+      expect(boat.addChild)
+        .toHaveBeenCalledWith(boat.shipSides[1], boat.shipShadows[1]);
+    });
+  });
+
+  describe('#spriteNumber', () => {
+    it('returns a sprite number according to the direction', () => {
+      boat.vx = 1;
+      boat.vy = 1;
+      expect(boat.spriteNumber()).toEqual(5);
+      boat.vx = -1;
+      expect(boat.spriteNumber()).toEqual(3);
+      boat.vy = -1;
+      expect(boat.spriteNumber()).toEqual(1);
     });
   });
 });

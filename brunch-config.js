@@ -7,7 +7,7 @@ module.exports = {
 
   modules: {
     autoRequire: {
-      'javascripts/brunch/app.js': ['brunch/javascripts/app.js']
+      'javascripts/brunch/app.js': ['brunch/javascripts/app.jsx']
     }
   },
 

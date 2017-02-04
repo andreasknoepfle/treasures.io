@@ -1,6 +1,6 @@
 import WorldMap from './world_map';
 import Boat from './boat';
-import keyboard from './keyboard';
+import Keyboard from './keyboard';
 
 const left = {
   keyCode: 37, axis: 'vx', direction: -1
@@ -14,13 +14,16 @@ const right = {
 const down = {
   keyCode: 40, axis: 'vy', direction: 1
 };
-const controls = [left, up, down, right];
+const controls = [left, up, right, down];
 
 class Stage extends PIXI.Container {
   constructor() {
     super();
     this.worldMap = new WorldMap();
     this.boat = new Boat();
+  }
+
+  setup() {
     this.addChild(this.worldMap);
     this.addChild(this.boat);
     this.setupKeyboard();
@@ -41,7 +44,7 @@ class Stage extends PIXI.Container {
 
   setupKeyboard() {
     controls.forEach(({ keyCode, axis, direction }) => {
-      const key = keyboard(keyCode);
+      const key = Keyboard.key(keyCode);
       key.press = () => {
         this.moveBoat(axis, direction);
       };

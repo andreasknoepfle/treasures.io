@@ -4,7 +4,6 @@ class SpriteHelper {
     const loader = new PIXI.loaders.Loader();
 
     loader.add('bitmap', url);
-    loader.load();
 
     const textures = sprites.reduce((hash, item) => {
       const spritemap = hash;
