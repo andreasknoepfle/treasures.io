@@ -1,0 +1,18 @@
+extends: airbnb-base
+parser: babel-eslint
+root: true
+parserOptions:
+  sourceType: module
+  allowImportExportEverywhere: false
+  ecmaFeatures:
+    modules: true,
+    jsx: true
+rules:
+  comma-dangle:
+    - 2
+    - never
+env:
+  browser: true
+globals:
+  PIXI: true
+  h: true

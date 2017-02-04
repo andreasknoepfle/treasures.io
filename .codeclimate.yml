@@ -15,7 +15,9 @@ engines:
       - python
       - php
   eslint:
-    enabled: false
+    enabled: true
+    channel: "eslint-3"
+    config: .eslintrc
   fixme:
     enabled: true
   rubocop:
