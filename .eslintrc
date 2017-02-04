@@ -1,0 +1,15 @@
+extends: airbnb-base
+root: true
+parserOptions:
+  ecmaFeatures:
+    modules: true,
+    jsx: true
+rules:
+  comma-dangle:
+    - 2
+    - never
+env:
+  browser: true
+globals:
+  PIXI: true
+  h: true
