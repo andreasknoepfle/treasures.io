@@ -9,5 +9,13 @@ const vm = new Vue({
   components: {
     pixicanvas,
     sidebar
+  },
+  render(h) {
+    return (
+      <div>
+        <pixicanvas></pixicanvas>
+        <sidebar></sidebar>
+      </div>
+    );
   }
 });

@@ -7,9 +7,8 @@
       "jsx": true
     }
   },
-  "ecmaFeatures": {
-    "modules": true,
-    "jsx": true
+  "rules": {
+    "no-unused-vars": ["error", { "argsIgnorePattern": "h" }]
   },
   "env": {
     "browser": true
