@@ -8,14 +8,24 @@
     "build": "brunch build --production",
     "sprites": "spritesheet-js sprites/*.png -f pixi.js --p public",
     "test": "jasmine",
-    "coverage": "nyc --all --reporter=lcov --reporter=text jasmine",
+    "coverage": "NODE_ENV=test nyc --reporter=lcov --reporter=text jasmine",
     "report-coverage": "nyc report --reporter=lcov > coverage.lcov && codecov",
-    "lint": "eslint app/brunch spec"
+    "lint": "eslint --ext .jsx --ext .js app/brunch spec"
   },
   "nyc": {
     "include": [
-      "app/brunch/**/*.js"
-    ]
+      "app/brunch/**/*.js",
+      "app/brunch/**/*.jsx"
+    ],
+    "extension": [
+      ".js",
+      ".jsx"
+    ],
+    "require" : [
+      "babel-register"
+    ],
+    "sourceMap": false,
+    "instrument": false
   },
   "dependencies": {
     "babel-brunch": "^6.0.6",
@@ -27,6 +37,7 @@
     "eslint": "^3.14.1",
     "git-digest-brunch": "^1.0.3",
     "normalize.css": "^5.0.0",
+    "nyc": "^10.0.0",
     "pixi.js": "~4.0.0",
     "sass-brunch": "^2.7.0",
     "vue": "^2.1.10",

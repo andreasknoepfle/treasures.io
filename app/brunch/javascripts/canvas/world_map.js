@@ -5,13 +5,13 @@ class WorldMap extends PIXI.Container {
     super();
     this.backgroundColor = 0x2980b9;
     this.addChild(new Island());
-    this.vx = 0;
-    this.vy = 0;
+    this.x = -300;
+    this.y = -300;
   }
 
-  update() {
-    this.x += this.vx;
-    this.y += this.vy;
+  update(offset) {
+    this.x += offset.x;
+    this.y += offset.y;
   }
 }
 

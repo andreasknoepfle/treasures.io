@@ -22,11 +22,12 @@ class Renderer {
 
     // Add the world map
     this.stage = new Stage();
+    this.stage.setup();
 
     this.renderer.autoResize = true;
 
     window.addEventListener('resize', this.resize.bind(this));
-    requestAnimationFrame(this.update.bind(this));
+    window.requestAnimationFrame(this.update.bind(this));
   }
 
   resize() {
@@ -37,7 +38,7 @@ class Renderer {
     this.stage.update(this.element.offsetWidth, this.mapfillHeight());
     this.renderer.render(this.stage);
 
-    requestAnimationFrame(this.update.bind(this));
+    window.requestAnimationFrame(this.update.bind(this));
   }
 
   mapfillHeight() {

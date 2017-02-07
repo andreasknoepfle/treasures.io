@@ -1,8 +1,8 @@
 import Vue from 'vue';
 import sidebar from '../../../app/brunch/javascripts/components/sidebar.jsx';
 
-describe('sidebar', () => {
+describe('sidebar component', () => {
   it('renders', () => {
-    new Vue(sidebar).$mount();
+    expect(new Vue(sidebar).$mount()).toBeDefined();
   });
 });

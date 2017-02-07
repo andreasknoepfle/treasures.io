@@ -25,7 +25,8 @@ install:
   - bundle install
 script:
   - rspec
+  - yarn lint
   - yarn coverage
-# - yarn report-coverage
+  - yarn report-coverage
 cache:
   bundler: true
