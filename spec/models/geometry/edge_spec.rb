@@ -10,6 +10,7 @@ describe Geometry::Edge do
 
   context 'with vector'
   let(:vector) { [10, -10] }
+
   it 'should offset the midpoint' do
     expect(subject.offset_point_by_half_of_length(0)).to eq [5, 5]
     expect(subject.offset_point_by_half_of_length(0.5)).not_to eq [5, 5]

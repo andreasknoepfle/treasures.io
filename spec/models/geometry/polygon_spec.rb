@@ -30,6 +30,7 @@ describe Geometry::Polygon do
       expect(subject.edges.last.from).to eq(subject.points.last)
       expect(subject.edges.last.to).to eq(subject.points.first)
     end
+
     it 'should draw edge from one point to the following point' do
       expect(subject.edges.first.from).to eq(subject.points.first)
       expect(subject.edges.first.to).to eq(subject.points.second)
