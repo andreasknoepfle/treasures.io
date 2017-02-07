@@ -51,7 +51,6 @@ describe OceanService do
     it_behaves_like 'generates islands with the island service'
   end
 
-
   context 'with more than 2 islands' do
     let(:number_of_islands) { 5 }
 
