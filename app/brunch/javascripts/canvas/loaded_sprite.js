@@ -1,6 +1,6 @@
-import PIXI from 'pixi.js';
+import { Sprite } from 'pixi.js';
 
-class LoadedSprite extends PIXI.Sprite {
+class LoadedSprite extends Sprite {
   constructor(image) {
     const sprite = PIXI.loader.resources['spritesheet.json'].textures[image];
     super(sprite);

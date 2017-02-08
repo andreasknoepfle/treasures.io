@@ -1,3 +1,4 @@
+import { Container } from 'pixi.js';
 import WorldMap from './world_map';
 import Boat from './boat';
 import Keyboard from './keyboard';
@@ -16,11 +17,13 @@ const down = {
 };
 const controls = [left, up, right, down];
 
-class Stage extends PIXI.Container {
+class Stage extends Container {
   constructor() {
     super();
     this.worldMap = new WorldMap();
     this.boat = new Boat();
+    this.x = 0;
+    this.y = 0;
   }
 
   setup() {
@@ -32,6 +35,10 @@ class Stage extends PIXI.Container {
   update(width, height) {
     const offset = this.boat.update(width, height);
     this.worldMap.update(offset);
+
+    const worldOffset = this.boat.move();
+    this.worldMap.move(worldOffset);
+    // this.debug.text = 'x:' + this.worldMap.worldPosition.x + 'y:' + this.worldMap.worldPosition.y
   }
 
   stopBoat(axis) {

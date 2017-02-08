@@ -1,13 +1,14 @@
-import PIXI from 'pixi.js';
+import { Container } from 'pixi.js';
 import LoadedSprite from './loaded_sprite';
+import constants from './constants';
 
 const spriteMatrix = [[1, 0, 7], [2, -1, 6], [3, 4, 5]];
 
-class Boat extends PIXI.Container {
+class Boat extends Container {
   constructor() {
     super();
-    this.width = 128;
-    this.height = 128;
+    this.width = constants.SPRITE_SIZE;
+    this.height = constants.SPRITE_SIZE;
     this.vx = 0;
     this.vy = 0;
     this.loadSprites();
@@ -19,14 +20,21 @@ class Boat extends PIXI.Container {
     return this.offset(screenWidth, screenHeight);
   }
 
+  move() {
+    return {
+      x: Boat.speed(this.vx),
+      y: Boat.speed(this.vy)
+    };
+  }
+
   offset(screenWidth, screenHeight) {
     const previousX = this.x;
     const previousY = this.y;
     this.x = parseInt((screenWidth - this.width) / 2, 10);
     this.y = parseInt((screenHeight - this.height) / 2, 10);
     const offset = {
-      x: (this.x - previousX) - Boat.speed(this.vx),
-      y: (this.y - previousY) - Boat.speed(this.vy)
+      x: (previousX - this.x),
+      y: (previousY - this.y)
     };
     return offset;
   }

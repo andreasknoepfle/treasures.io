@@ -16,7 +16,7 @@ class Api::OceansController < ApplicationController
   end
 
   def render_bad_request
-    render nothing: true, status: :bad_request
+    head(:bad_request)
   end
 
   def limit_valid?

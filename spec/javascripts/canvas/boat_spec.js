@@ -59,8 +59,18 @@ describe('Boat', () => {
       const offset = boat.offset(256, 255);
       expect(boat.x).toEqual(64);
       expect(boat.y).toEqual(63);
-      expect(offset.x).toEqual(54);
-      expect(offset.y).toEqual(53);
+      expect(offset.x).toEqual(-54);
+      expect(offset.y).toEqual(-53);
+    });
+  });
+
+  describe('#move', () => {
+    it('returns the offset the boat is moving', () => {
+      boat.vx = 1;
+      boat.vy = -1;
+      const offset = boat.move();
+      expect(offset.x).toEqual(5);
+      expect(offset.y).toEqual(-5);
     });
   });
 
