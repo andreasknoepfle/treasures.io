@@ -32,7 +32,7 @@ script:
 cache:
   bundler: true
 after_success:
-  - test $TRAVIS_BRANCH = "master"
+  - sh script/deploy.sh
 
 addons:
   ssh_known_hosts: treasures.io
