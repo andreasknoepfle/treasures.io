@@ -31,17 +31,8 @@ script:
   - yarn report-coverage
 cache:
   bundler: true
-deploy:
-  provider: script
-  skip_cleanup: true
-  script:
-    - echo $DEPLOY_KEY > /tmp/deploy_key.enc
-    - base64 --decode /tmp/deploy_key.enc > /tmp/deploy_key
-    - chmod 600 /tmp/deploy_key
-    - ssh-add /tmp/deploy_key
-    - git remote add dokku dokku@smallbutton.com:treasures
-    - git push -f dokku production:master
-  on:
-    branch: production
+after_success:
+  - test $TRAVIS_BRANCH = "master"
+
 addons:
   ssh_known_hosts: treasures.io

@@ -28,18 +28,6 @@ module.exports = {
       presets: ['es2015'],
       plugins: ['transform-vue-jsx'],
       pattern: /\.(js|jsx)$/
-    },
-    sass: {
-      mode: 'native',
-      precision: 8,
-      sourceMapEmbed: true,
-      options: {
-        includePaths: [
-          'node_modules/normalize.css',
-          'node_modules/bourbon/app/assets/stylesheets',
-          'node_modules/bourbon-neat/app/assets/stylesheets'
-        ]
-      }
     }
   }
 };
