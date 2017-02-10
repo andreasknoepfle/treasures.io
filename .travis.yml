@@ -30,3 +30,11 @@ script:
   - yarn report-coverage
 cache:
   bundler: true
+deploy:
+  provider: script
+  skip_cleanup: true
+  script: scripts/deploy.sh
+  on:
+    branch: production
+addons:
+  ssh_known_hosts: treasures.io
