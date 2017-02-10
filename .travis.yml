@@ -32,7 +32,7 @@ script:
 cache:
   bundler: true
 after_success:
-  - sh script/deploy.sh
+  - script/deploy
 
 addons:
-  ssh_known_hosts: treasures.io
+  ssh_known_hosts: smallbutton.com
