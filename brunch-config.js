@@ -30,15 +30,15 @@ module.exports = {
       pattern: /\.(js|jsx)$/
     },
     sass: {
+      mode: 'native',
+      precision: 8,
+      sourceMapEmbed: true,
       options: {
-        mode: 'native',
         includePaths: [
-          'node_modules/bourbon/core',
-          'node_modules/bourbon-neat/app/assets/stylesheets',
-          'node_modules/normalize.css'
-        ],
-        precision: 8,
-        sourceMapEmbed: true
+          'node_modules/normalize.css',
+          'node_modules/bourbon/app/assets/stylesheets',
+          'node_modules/bourbon-neat/app/assets/stylesheets'
+        ]
       }
     }
   }
