@@ -13,13 +13,13 @@ describe Geometry::Edge do
 
     context 'with default factor' do
       it 'should offset the midpoint' do
-        expect(subject.offset_point_by_half_of_length(0.5)).to eq [7.5, 2.5]
+        expect(subject.offset_point_by_half_of_length).to eq [5, 5]
       end
     end
 
     context 'with a factor of  0,5' do
       it 'should offset the midpoint' do
-        expect(subject.offset_point_by_half_of_length).to eq [5, 5]
+        expect(subject.offset_point_by_half_of_length(0.5)).to eq [7.5, 2.5]
       end
     end
   end
