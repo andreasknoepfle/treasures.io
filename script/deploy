@@ -5,7 +5,7 @@ if [[ "$TRAVIS_BRANCH" != "production" ]]; then
   exit 0
 fi
 
-if [[ -n "$DEPLOY_KEY" ]]; then
+if [[ -z "$DEPLOY_KEY" ]]; then
   echo "Deploy key missing. Skip deployment."
   # analyze current branch and react accordingly
   exit 0
