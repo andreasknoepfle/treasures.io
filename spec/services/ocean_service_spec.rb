@@ -2,7 +2,6 @@ require 'rails_helper'
 require 'pry'
 describe OceanService do
   subject { OceanService.new(number_of_islands).call }
-
   let(:generated_islands) { subject[:islands] }
 
   shared_examples_for 'generates islands with the island service' do
@@ -52,7 +51,7 @@ describe OceanService do
     it_behaves_like 'generates islands with the island service'
   end
 
-  context 'with mre than 2 islands' do
+  context 'with more than 2 islands' do
     let(:number_of_islands) { 5 }
 
     it_behaves_like 'generates islands with the island service'
