@@ -11,6 +11,10 @@ gem 'puma', '~> 3.0'
 
 gem 'npm-pipeline-rails'
 gem 'slim'
+gem 'sass-rails'
+gem 'bourbon'
+gem 'neat'
+gem 'normalize-rails'
 
 group :test do
   gem 'codecov', require: false
