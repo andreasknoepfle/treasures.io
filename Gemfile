@@ -1,11 +1,12 @@
 source 'https://rubygems.org'
 
+gem 'npm-pipeline-rails'
+gem 'puma', '~> 3.0'
 gem 'better_errors'
 gem 'binding_of_caller'
 gem 'byebug'
 gem 'rails', '~> 5.0.0', '>= 5.0.0.1'
-gem 'puma', '~> 3.0'
-gem 'npm-pipeline-rails'
+
 gem 'slim'
 gem 'sass-rails'
 gem 'bourbon'
