@@ -32,7 +32,7 @@ RSpec.describe Api::OceansController do
   it 'calls the OceanService' do
     expect(OceanService)
       .to(receive(:new).exactly(4).times.and_return(ocean_service))
-    get :index, n_oceans: '4'
+    get :index, limit: '4'
     expect(oceans).to eq %w(ocean ocean ocean ocean)
   end
 end
