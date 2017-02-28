@@ -5,13 +5,11 @@ RSpec.describe Api::OceansController do
   let(:oceans) { json_response }
   let(:ocean_service) { instance_double(OceanService, call: 'ocean') }
 
-
   it 'renders 4 oceans, when there are no additional parameters' do
     get :index
     expect(response).to be_success
     expect(oceans.size).to be 4
   end
-
 
   it 'renders 0 oceans' do
     get :index, limit: '0'
@@ -34,7 +32,7 @@ RSpec.describe Api::OceansController do
   it 'calls the OceanService' do
     expect(OceanService)
       .to(receive(:new).exactly(4).times.and_return(ocean_service))
-    get :index
+    get :index, n_oceans: '4'
     expect(oceans).to eq %w(ocean ocean ocean ocean)
   end
 end
