@@ -1,8 +1,8 @@
 source 'https://rubygems.org'
 
 gem 'npm-pipeline-rails'
-gem 'puma', '~> 3.0'
 gem 'better_errors'
+gem 'puma', '~> 3.0'
 gem 'binding_of_caller'
 gem 'byebug'
 gem 'rails', '~> 5.0.0', '>= 5.0.0.1'
@@ -12,6 +12,7 @@ gem 'sass-rails'
 gem 'bourbon'
 gem 'neat'
 gem 'normalize-rails'
+gem 'twitter'
 
 group :test do
   gem 'codecov', require: false
