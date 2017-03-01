@@ -1,4 +1,5 @@
 class Api::OceansController < ApplicationController
+  protect_from_forgery with: :null_session
   before_filter :render_bad_request, unless: :limit_valid?
 
   def index
