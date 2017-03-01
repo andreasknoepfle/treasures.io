@@ -1,13 +1,11 @@
 class Api::OceansController < ApplicationController
+  before_filter :render_bad_request, unless: :limit_valid?
+
   def index
-    if !limit_valid?
-      render_bad_request
-    else
-      oceans = Array.new(number_of_oceans) do
-        OceanService.new(Random.rand(1..5)).call
-      end
-      render json: oceans
+    oceans = Array.new(number_of_oceans) do
+      OceanService.new(Random.rand(1..5)).call
     end
+    render json: oceans
   end
 
   private
