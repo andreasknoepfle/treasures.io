@@ -1,12 +1,9 @@
-
 require 'twitter'
-
+APP_CONFIG = YAML.load(File.read('config/settings/development.yml'))
+                 .with_indifferent_access
 class TwitterService
-  APP_CONFIG = YAML.load(File.read('config/settings/development.yml'))
-                   .with_indifferent_access
-
   def initialize
-    @client = Twitter::REST::Client.new do |config|
+    @twitter = Twitter::REST::Client.new do |config|
       config.consumer_key        = APP_CONFIG['consumer_key']
       config.consumer_secret     = APP_CONFIG['consumer_secret']
       config.access_token        = APP_CONFIG['access_token']
@@ -14,35 +11,33 @@ class TwitterService
     end
   end
 
-  def tweets_from_user_that_contain(user, number_of_posts = 5, *tags)
-    @client.search("from:#{user} #{make_hashtags(tags)}", result_type: 'recent')
-           .take(number_of_posts)
-           .each do |tweet|
-      puts tweet.text
-    end
+  def search_tweets(user = '', number_of_posts = 5, *tags)
+    @twitter.search("#{user} #{make_hashtags(tags)}", result_type: 'recent')
+            .take(number_of_posts)
   end
 
-  def tweets_containing(*tags)
-    tweets = @client.search(make_hashtags(tags),
-                            result_type: 'recent',
-                            language: 'en')
-    tweets.attrs[:statuses].each do |tweet|
-      puts "#{tweet[:user][:name]}: #{tweet[:text]}"
+  def trend_names
+    names = []
+    trends.attrs[:trends].each do |trend|
+      names << trend[:name]
     end
-  end
-
-  def list_trend_names
-    @client.trends.attrs[:trends].each do |trend|
-      puts trend[:name]
-    end
+    names
   end
 
   private
 
+  def trends # returns Twitter::Trendresults
+    @twitter.trends
+  end
+
   def make_hashtags(tags) # takes an array of words
     hashtags = []
     tags.each do |tag|
-      hashtags << '#' + tag
+      hashtags << if tag[0] == '#'
+                    tag
+                  else
+                    '#' + tag
+                  end
     end
     hashtags.join(', ')
   end

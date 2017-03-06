@@ -13,6 +13,7 @@ gem 'rails', '~> 5.0.0', '>= 5.0.0.1'
 gem 'sass-rails'
 gem 'slim'
 gem 'twitter'
+gem 'simplecov'
 
 group :test do
   gem 'codecov', require: false

@@ -1,0 +1,11 @@
+<h1> Wow there is content on this island! </h1>
+
+<% @tweets.each do |tweet| %>
+<h3><%= tweet.user.name %></h3><a href="<%= tweet.url %>"> Show source tweet</a>
+<p><%= tweet.text %><p>
+
+<% tweet.media.each do |item| %>
+<img src="<% item.display_url %>" >
+<% end %>
+<br>
+<% end %>
