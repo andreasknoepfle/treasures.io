@@ -60,7 +60,11 @@ GEM
       url
     coderay (1.1.1)
     concurrent-ruby (1.0.4)
+    config (1.4.0)
+      activesupport (>= 3.0)
+      deep_merge (~> 1.1.1)
     debug_inspector (0.0.2)
+    deep_merge (1.1.1)
     diff-lcs (1.2.5)
     docile (1.1.5)
     domain_name (0.5.20170223)
@@ -245,6 +249,7 @@ DEPENDENCIES
   bourbon
   byebug
   codecov
+  config
   listen (~> 3.0.5)
   neat
   normalize-rails

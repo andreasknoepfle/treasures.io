@@ -28,4 +28,11 @@ RSpec.describe Api::OceansController do
     get :index, params: { limit: '21' }
     expect(response).to be_bad_request
   end
+
+  it 'calls the OceanService' do
+    expect(OceanService)
+      .to(receive(:new).exactly(4).times.and_return(ocean_service))
+    get :index, limit: '4'
+    expect(oceans).to eq %w(ocean ocean ocean ocean)
+  end
 end
