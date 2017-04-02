@@ -12,7 +12,7 @@ RSpec.describe Api::OceansController do
   end
 
   it 'renders 0 oceans' do
-    get :index, limit: '0'
+    get :index, params: { limit: '0' }
     expect(response).to be_success
     expect(oceans.size).to be
   end
@@ -20,12 +20,12 @@ RSpec.describe Api::OceansController do
   it 'calls the OceanService with 4 as limit' do
     expect(OceanService)
       .to(receive(:new).exactly(4).times.and_return(ocean_service))
-    get :index, limit: '4'
+    get :index, params: { limit: '4' }
     expect(oceans).to eq %w(ocean ocean ocean ocean)
   end
 
   it 'calls the ocean with forbidden parameters (< 0 | > 20)' do
-    get :index, limit: '21'
+    get :index, params: { limit: '21' }
     expect(response).to be_bad_request
   end
 end
