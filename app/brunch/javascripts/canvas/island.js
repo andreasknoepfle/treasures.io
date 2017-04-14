@@ -17,6 +17,8 @@ class Island extends Graphics {
 
     this.drawPolygon(this.polygon);
     this.endFill();
+    // this.lineStyle(1, '#000000');
+    // this.drawPolygon([0, 0, 0, 1000, 1000, 1000, 1000, 0]);
   }
 
   collides(point) {

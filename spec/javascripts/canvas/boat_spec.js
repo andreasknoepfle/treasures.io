@@ -50,20 +50,6 @@ describe('Boat', () => {
     });
   });
 
-  describe('#offset', () => {
-    it('sets the boat to be in the middle and returns the new offset', () => {
-      boat.width = 128;
-      boat.height = 128;
-      boat.x = 10;
-      boat.y = 10;
-      const offset = boat.offset(256, 255);
-      expect(boat.x).toEqual(64);
-      expect(boat.y).toEqual(63);
-      expect(offset.x).toEqual(-54);
-      expect(offset.y).toEqual(-53);
-    });
-  });
-
   describe('#move', () => {
     it('returns the offset the boat is moving', () => {
       boat.vx = 1;
@@ -77,11 +63,12 @@ describe('Boat', () => {
   describe('#update', () => {
     it('updates the sprite', () => {
       spyOn(boat, 'updateSprite');
-      spyOn(boat, 'offset');
-      boat.vx = -1;
-      boat.update(10, 10);
+      boat.width = 128;
+      boat.height = 128;
+      boat.update(1000, 800);
       expect(boat.updateSprite).toHaveBeenCalled();
-      expect(boat.offset).toHaveBeenCalledWith(10, 10);
+      expect(boat.x).toEqual(436);
+      expect(boat.y).toEqual(336);
     });
   });
 

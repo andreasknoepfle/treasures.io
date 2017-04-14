@@ -7,7 +7,11 @@ describe('Stage', () => {
   let stage;
   beforeEach(() => {
     SpriteHelper.mockSprites([]);
-    stage = new Stage();
+    const worldState = jasmine.createSpyObj('worldState', ['updateWorld']);
+    const worldMap = jasmine.createSpyObj('worldMap', ['update']);
+    worldState.worldMap = worldMap;
+    stage = new Stage(worldState);
+    spyOn(stage, 'addChild');
   });
 
   describe('#setup', () => {
@@ -20,7 +24,6 @@ describe('Stage', () => {
     });
 
     it('adds a boat and a world map', () => {
-      spyOn(stage, 'addChild');
       stage.setup();
       expect(stage.boat).toBeDefined();
       expect(stage.worldMap).toBeDefined();
@@ -32,11 +35,13 @@ describe('Stage', () => {
   describe('#update', () => {
     it('updates the boat and updates the worldmap with the boats offset', () => {
       const offset = { x: 2, y: 2 };
-      spyOn(stage.boat, 'update').and.returnValue(offset);
-      spyOn(stage.worldMap, 'update');
+      spyOn(stage.boat, 'update');
+      spyOn(stage.boat, 'move').and.returnValue(offset);
       stage.update(100, 200);
       expect(stage.boat.update).toHaveBeenCalledWith(100, 200);
-      expect(stage.worldMap.update).toHaveBeenCalledWith(offset);
+      expect(stage.worldMap.update).toHaveBeenCalledWith(100, 200);
+      expect(stage.boat.move).toHaveBeenCalled();
+      expect(stage.worldState.updateWorld).toHaveBeenCalledWith(offset, 100, 200);
     });
   });
 

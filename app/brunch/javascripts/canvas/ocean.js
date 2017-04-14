@@ -1,19 +1,17 @@
 import { Container } from 'pixi.js';
+import Island from './island';
 
 class Ocean extends Container {
-  constructor(islands) {
+  constructor(data) {
     super();
-    this.islands = islands;
-
-    // as a debug tool
-    // this.lineStyle(1, '#000000');
-    // this.drawPolygon([0, 0, 0, 1000, 1000, 1000, 1000, 0]);
-
-    this.x = 0;
-    this.y = 0;
+    this.islands = [];
+    this.x = data.x * 1000;
+    this.y = data.y * 1000;
     this.width = 1000;
     this.height = 1000;
-    this.islands.forEach((island) => {
+    data.islands.forEach((i) => {
+      const island = new Island(i.outline_points);
+      this.islands.push(island);
       this.addChild(island);
     });
   }

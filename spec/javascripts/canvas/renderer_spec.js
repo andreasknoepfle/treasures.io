@@ -10,6 +10,7 @@ describe('Renderer', () => {
   let verticalSiblings;
   let nav;
   let footer;
+  let worldState;
 
   beforeEach(() => {
     nav = jasmine.createSpyObj('nav', ['offsetHeight']);
@@ -17,7 +18,9 @@ describe('Renderer', () => {
     verticalSiblings = [nav, footer];
     canvas = jasmine.createSpyObj('canvas', ['offsetWidth', 'appendChild']);
     SpriteHelper.mockSprites([]);
-    renderer = new Renderer(canvas, verticalSiblings);
+    worldState = jasmine.createSpyObj('worldState', ['worldMap']);
+    spyOn(Stage.prototype, 'setup');
+    renderer = new Renderer(canvas, verticalSiblings, worldState);
   });
 
   function mockCanvasSize() {
@@ -48,7 +51,6 @@ describe('Renderer', () => {
     });
 
     it('sets up a stage', () => {
-      spyOn(Stage.prototype, 'setup');
       renderer.setupPixi();
       expect(renderer.stage.setup).toHaveBeenCalled();
     });

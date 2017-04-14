@@ -1,5 +1,4 @@
 import Ocean from '../../../app/brunch/javascripts/canvas/ocean';
-import Island from '../../../app/brunch/javascripts/canvas/island';
 
 describe('Ocean', () => {
   let ocean;
@@ -8,27 +7,27 @@ describe('Ocean', () => {
   let islands;
   const point = { x: 300, y: 300 };
   beforeEach(() => {
-    island1 = new Island([]);
-    island2 = new Island([]);
+    island1 = { outline_points: [] };
+    island2 = { outline_points: [] };
     islands = [island1, island2];
-    ocean = new Ocean(islands);
+    ocean = new Ocean({ islands });
   });
 
   describe('#collides', () => {
     beforeEach(() => {
-      spyOn(island1, 'collides');
-      spyOn(island2, 'collides');
+      spyOn(ocean.islands[0], 'collides');
+      spyOn(ocean.islands[1], 'collides');
     });
 
     it('returns true when an island collides', () => {
-      island1.collides.and.returnValue(true);
-      island2.collides.and.returnValue(false);
+      ocean.islands[0].collides.and.returnValue(true);
+      ocean.islands[1].collides.and.returnValue(false);
       expect(ocean.collides(point)).toBe(true);
     });
 
     it('returns false when no island collides', () => {
-      island1.collides.and.returnValue(false);
-      island2.collides.and.returnValue(false);
+      ocean.islands[0].collides.and.returnValue(false);
+      ocean.islands[1].collides.and.returnValue(false);
       expect(ocean.collides(point)).toBe(false);
     });
   });

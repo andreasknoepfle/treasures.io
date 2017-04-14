@@ -2,9 +2,10 @@ import 'pixi.js';
 import Stage from './stage';
 
 class Renderer {
-  constructor(element, verticalSiblings) {
+  constructor(element, verticalSiblings, worldState) {
     this.element = element;
     this.verticalSiblings = verticalSiblings;
+    this.worldState = worldState;
   }
 
   init() {
@@ -16,14 +17,14 @@ class Renderer {
   setupPixi() {
     // Create the application
     this.application = new PIXI.Application(this.element.offsetWidth,
-                                         this.mapfillHeight(),
-                                         { backgroundColor: 0x2980b9 });
+                                            this.mapfillHeight(),
+                                            { backgroundColor: 0x2980b9 });
 
     // Add the canvas to the HTML document
     this.element.appendChild(this.application.view);
 
     // Add the world map
-    this.stage = new Stage();
+    this.stage = new Stage(this.worldState);
     this.stage.setup();
     this.application.stage = this.stage;
 
