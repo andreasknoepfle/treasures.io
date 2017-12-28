@@ -1,6 +1,6 @@
 import Ocean from './canvas/ocean';
 import WorldMap from './canvas/world_map';
-import {oceanCoordinates, oceanID} from './utils/ocean_helper';
+import { oceanCoordinates, oceanID } from './utils/ocean_helper';
 import constants from './constants';
 
 class WorldState {

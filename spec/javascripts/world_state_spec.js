@@ -26,7 +26,7 @@ describe('WorldState', () => {
     });
 
     it('loads fetched oceans', () => {
-      worldState.oceans = { '0:0': { islands: [] } };
+      worldState.oceans = { '0:0': { islands: [], fetched: true } };
       spyOn(worldState.worldMap, 'addChild');
       worldState.updateWorld({ x: 0, y: 0 }, 1000, 800);
       expect(worldState.worldMap.addChild).toHaveBeenCalled();
@@ -34,7 +34,7 @@ describe('WorldState', () => {
     });
 
     it('moves the world when an offset is given', () => {
-      worldState.oceans = { '-1:-1': { islands: [] } };
+      worldState.oceans = { '-1:-1': { islands: [], fetched: true } };
       worldState.loadNewOceans();
       spyOn(worldState.oceans['-1:-1'].ui, 'collides');
       worldState.worldPosition = { x: -2, y: -2 };

@@ -13,4 +13,4 @@ function oceanID({ x, y }) {
   return `${x}:${y}`;
 }
 
-export {oceanCoordinates, oceanID};
+export { oceanCoordinates, oceanID };
