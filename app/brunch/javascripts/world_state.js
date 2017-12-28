@@ -1,20 +1,7 @@
 import Ocean from './canvas/ocean';
 import WorldMap from './canvas/world_map';
-
-const OCEAN_SIZE = 1000;
-
-function oceanCoordinates({ x, y }) {
-  const ox = parseInt(x / OCEAN_SIZE, 10);
-  const oy = parseInt(y / OCEAN_SIZE, 10);
-  return {
-    x: (x < 0 ? ox - 1 : ox),
-    y: (y < 0 ? oy - 1 : oy)
-  };
-}
-
-function oceanID({ x, y }) {
-  return `${x}:${y}`;
-}
+import {oceanCoordinates, oceanID} from './utils/ocean_helper';
+import constants from './constants';
 
 class WorldState {
   constructor(oceans, emitCallback) {
@@ -65,8 +52,8 @@ class WorldState {
   }
 
   requiredOceans(width, height) {
-    const horizontalOceans = parseInt(width / OCEAN_SIZE, 10) + 2;
-    const verticalOceans = parseInt(height / OCEAN_SIZE, 10) + 2;
+    const horizontalOceans = parseInt(width / constants.OCEAN_SIZE, 10) + 2;
+    const verticalOceans = parseInt(height / constants.OCEAN_SIZE, 10) + 2;
     const { x, y } = this.currentOceanCoordinates();
     const oceansCoordinates = [];
     for (let i = x - horizontalOceans; i < x + horizontalOceans; i += 1) {

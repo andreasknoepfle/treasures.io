@@ -2,6 +2,7 @@ import Vue from 'vue';
 import 'pixi.js';
 import pixicanvas from './components/pixicanvas.jsx';
 import sidebar from './components/sidebar.jsx';
+import { oceanID } from './utils/ocean_helper';
 
 // eslint-disable-next-line no-unused-vars
 const vm = new Vue({
@@ -15,22 +16,21 @@ const vm = new Vue({
     oceans: {}
   },
   methods: {
-    loadOceans(requiredOceans) {
-      for (const requiredOcean of requiredOceans) {
-        const oceanID = `${requiredOcean.x}:${requiredOcean.y}`;
-        if (!this.oceans[oceanID]) {
-          this.oceans[oceanID] = { fetched: false };
-          fetch('api/oceans.json?limit=1').then((response) => {
-            response.json().then((json) => {
-              const ocean = json[0];
-              ocean.x = requiredOcean.x;
-              ocean.y = requiredOcean.y;
-              ocean.fetched = true;
-              this.oceans[oceanID] = ocean;
-            });
+    loadOceans(oceans) {
+      const requiredOceans = oceans.filter(ocean => !this.oceans[oceanID(ocean)]);
+      requiredOceans.forEach((ocean) => { this.oceans[oceanID(ocean)] = { fetched: false }; });
+      if (requiredOceans.length < 1) return;
+      fetch(`api/oceans.json?limit=${requiredOceans.length}`).then((response) => {
+        response.json().then((newOceans) => {
+          requiredOceans.forEach((ocean, index) => {
+            const newOcean = newOceans[index];
+            newOcean.y = ocean.y;
+            newOcean.x = ocean.x;
+            newOcean.fetched = true;
+            this.oceans[oceanID(ocean)] = newOcean;
           });
-        }
-      }
+        });
+      });
     }
   },
   render(h) {
