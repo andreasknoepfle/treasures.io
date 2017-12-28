@@ -1,5 +1,5 @@
 import 'pixi.js';
-import Boat from '../../../app/brunch/javascripts/canvas/boat';
+import Boat from '../../../app/javascript/src/canvas/boat';
 import SpriteHelper from '../../helpers/sprite_helper';
 
 const boatSprites = [

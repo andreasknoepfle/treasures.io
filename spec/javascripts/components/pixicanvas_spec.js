@@ -1,6 +1,6 @@
 import Vue from 'vue';
-import Renderer from '../../../app/brunch/javascripts/canvas/renderer';
-import pixicanvas from '../../../app/brunch/javascripts/components/pixicanvas.jsx';
+import Renderer from '../../../app/javascript/src/canvas/renderer';
+import pixicanvas from '../../../app/javascript/src/components/pixicanvas.jsx';
 
 describe('pixicanvas component', () => {
   beforeEach(() => {

@@ -1,5 +1,5 @@
 import 'pixi.js';
-import WorldMap from '../../../app/brunch/javascripts/canvas/world_map';
+import WorldMap from '../../../app/javascript/src/canvas/world_map';
 
 describe('WorldMap', () => {
   let worldMap;

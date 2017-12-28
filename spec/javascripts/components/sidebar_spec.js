@@ -1,5 +1,5 @@
 import Vue from 'vue';
-import sidebar from '../../../app/brunch/javascripts/components/sidebar.jsx';
+import sidebar from '../../../app/javascript/src/components/sidebar.jsx';
 
 describe('sidebar component', () => {
   it('renders', () => {

@@ -4,7 +4,6 @@ import pixicanvas from './components/pixicanvas.jsx';
 import sidebar from './components/sidebar.jsx';
 import { oceanID } from './utils/ocean_helper';
 
-// eslint-disable-next-line no-unused-vars
 const vm = new Vue({
   el: '#app',
   components: {
@@ -23,11 +22,11 @@ const vm = new Vue({
       fetch(`api/oceans.json?limit=${requiredOceans.length}`).then((response) => {
         response.json().then((newOceans) => {
           requiredOceans.forEach((ocean, index) => {
-            const newOcean = newOceans[index];
-            newOcean.y = ocean.y;
-            newOcean.x = ocean.x;
-            newOcean.fetched = true;
-            this.oceans[oceanID(ocean)] = newOcean;
+            this.oceans[oceanID(ocean)] = {
+              ...ocean,
+              ...newOceans[index],
+              fetched: true
+            };
           });
         });
       });
@@ -44,3 +43,5 @@ const vm = new Vue({
     );
   }
 });
+
+export default vm;

@@ -28,15 +28,19 @@
     "instrument": false
   },
   "dependencies": {
+    "@rails/webpacker": "^3.2.0",
     "babel-brunch": "^6.0.6",
     "babel-core": "^6.17.0",
     "babel-helper-vue-jsx-merge-props": "^2.0.0",
+    "babel-loader": "^7.1.2",
     "babel-plugin-istanbul": "^3.0.0",
     "babel-plugin-syntax-jsx": "^6.18.0",
     "babel-plugin-transform-vue-jsx": "^3.3.0",
+    "babel-preset-env": "^1.6.1",
     "bourbon": "^4.2.7",
     "bourbon-neat": "^1.8.0",
     "brunch": "^2.9.1",
+    "coffeescript": "1.12.7",
     "css-brunch": "^2.6.1",
     "eslint": "^3.14.1",
     "git-digest-brunch": "^1.0.3",
@@ -45,11 +49,12 @@
     "pixi.js": "^4.4.0",
     "point-in-polygon": "^1.0.1",
     "vue": "^2.1.10",
-    "vue-brunch": "^2.0.0"
+    "vue-brunch": "^2.0.0",
+    "vue-loader": "^13.6.1",
+    "vue-template-compiler": "^2.5.13"
   },
   "devDependencies": {
     "auto-reload-brunch": "^2.0.0",
-    "babel-preset-es2015": "^6.18.0",
     "babel-register": "^6.18.0",
     "canvas": "^1.6.2",
     "codecov": "^1.0.1",
@@ -60,7 +65,8 @@
     "jsdom": "^9.8.3",
     "jsdom-global": "^2.1.0",
     "nyc": "^10.1.2",
-    "spritesheet-js": "^1.2.2"
+    "spritesheet-js": "^1.2.2",
+    "webpack-dev-server": "^2.9.7"
   },
   "peerDependencies": {}
 }

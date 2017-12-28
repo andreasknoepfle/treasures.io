@@ -1,4 +1,4 @@
-import Island from '../../../app/brunch/javascripts/canvas/island';
+import Island from '../../../app/javascript/src/canvas/island';
 
 describe('Island', () => {
   let island;

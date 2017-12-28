@@ -1,4 +1,4 @@
-import Ocean from '../../../app/brunch/javascripts/canvas/ocean';
+import Ocean from '../../../app/javascript/src/canvas/ocean';
 
 describe('Ocean', () => {
   let ocean;

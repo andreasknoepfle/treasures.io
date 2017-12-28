@@ -1,5 +1,5 @@
-import Renderer from '../../../app/brunch/javascripts/canvas/renderer';
-import Stage from '../../../app/brunch/javascripts/canvas/stage';
+import Renderer from '../../../app/javascript/src/canvas/renderer';
+import Stage from '../../../app/javascript/src/canvas/stage';
 import SpriteHelper from '../../helpers/sprite_helper';
 
 describe('Renderer', () => {

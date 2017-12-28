@@ -1,6 +1,6 @@
 import 'pixi.js';
-import Stage from '../../../app/brunch/javascripts/canvas/stage';
-import Keyboard from '../../../app/brunch/javascripts/canvas/keyboard';
+import Stage from '../../../app/javascript/src/canvas/stage';
+import Keyboard from '../../../app/javascript/src/canvas/keyboard';
 import SpriteHelper from '../../helpers/sprite_helper';
 
 describe('Stage', () => {

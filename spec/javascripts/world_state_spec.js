@@ -1,4 +1,4 @@
-import WorldState from '../../app/brunch/javascripts/world_state';
+import WorldState from '../../app/javascript/src/world_state';
 
 describe('WorldState', () => {
   let worldState;
