@@ -6,12 +6,12 @@ gem 'bourbon'
 gem 'byebug'
 gem 'neat'
 gem 'normalize-rails'
-gem 'webpacker'
 gem 'puma', '~> 3.0'
 gem 'rails', '~> 5.0.0', '>= 5.0.0.1'
 gem 'sass-rails'
 gem 'slim'
 gem 'twitter'
+gem 'webpacker'
 
 group :test do
   gem 'codecov', require: false
