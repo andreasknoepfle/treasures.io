@@ -4,28 +4,11 @@
   "author": "Andreas Knöpfle",
   "version": "0.1.0",
   "scripts": {
-    "start": "brunch watch",
-    "build": "brunch build --production",
     "sprites": "spritesheet-js sprites/*.png -f pixi.js --p public",
     "test": "jest",
     "coverage": "jest --coverage",
     "report-coverage": "jest --coverage && codecov",
     "lint": "eslint --ext .jsx --ext .js app/brunch spec"
-  },
-  "nyc": {
-    "include": [
-      "app/brunch/**/*.js",
-      "app/brunch/**/*.jsx"
-    ],
-    "extension": [
-      ".js",
-      ".jsx"
-    ],
-    "require": [
-      "babel-register"
-    ],
-    "sourceMap": false,
-    "instrument": false
   },
   "dependencies": {
     "@rails/webpacker": "^3.2.0",
