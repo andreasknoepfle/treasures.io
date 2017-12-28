@@ -1,4 +1,4 @@
-import WorldState from '../../app/javascript/src/world_state';
+import WorldState from '../../../app/javascript/src/state/world';
 
 describe('WorldState', () => {
   let worldState;
@@ -7,7 +7,7 @@ describe('WorldState', () => {
     '0:0': {}
   };
   beforeEach(() => {
-    emitCallback = jasmine.createSpy();
+    emitCallback = jest.fn();
     worldState = new WorldState(oceans, emitCallback);
   });
 

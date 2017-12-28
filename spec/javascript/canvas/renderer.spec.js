@@ -1,6 +1,6 @@
 import Renderer from '../../../app/javascript/src/canvas/renderer';
 import Stage from '../../../app/javascript/src/canvas/stage';
-import SpriteHelper from '../../helpers/sprite_helper';
+import SpriteHelper from '../support/sprite_helper';
 
 describe('Renderer', () => {
   const CANVAS_WIDTH = 800;
@@ -13,12 +13,13 @@ describe('Renderer', () => {
   let worldState;
 
   beforeEach(() => {
-    nav = jasmine.createSpyObj('nav', ['offsetHeight']);
-    footer = jasmine.createSpyObj('nav', ['offsetHeight']);
+    PIXI.utils.skipHello();
+    nav = { offsetHeight: jest.fn() };
+    footer = { offsetHeight: jest.fn() };
     verticalSiblings = [nav, footer];
-    canvas = jasmine.createSpyObj('canvas', ['offsetWidth', 'appendChild']);
+    canvas = { offsetWidth: jest.fn(), appendChild: jest.fn() };
     SpriteHelper.mockSprites([]);
-    worldState = jasmine.createSpyObj('worldState', ['worldMap']);
+    worldState = { worldMap: jest.fn() };
     spyOn(Stage.prototype, 'setup');
     renderer = new Renderer(canvas, verticalSiblings, worldState);
   });
@@ -30,18 +31,18 @@ describe('Renderer', () => {
   }
 
   function expectToRequestAnimationFrame(callback) {
-    window.requestAnimationFrame = jasmine.createSpy('requestAnimationFrame');
+    window.requestAnimationFrame = jest.fn();
     callback();
     expect(window.requestAnimationFrame).toHaveBeenCalled();
   }
 
   describe('#init', () => {
     it('loads pixi resources', () => {
-      const loaderObject = jasmine.createSpyObj('loader', ['load']);
+      const loaderObject = { load: jest.fn() };
       spyOn(PIXI.loader, 'add').and.returnValue(loaderObject);
       renderer.init();
       expect(PIXI.loader.add).toHaveBeenCalledWith('spritesheet.json');
-      expect(loaderObject.load).toHaveBeenCalledWith(jasmine.any(Function));
+      expect(loaderObject.load).toHaveBeenCalledWith(expect.any(Function));
     });
   });
 
@@ -57,7 +58,7 @@ describe('Renderer', () => {
 
     it('adds the renderer view to the canvas', () => {
       renderer.setupPixi();
-      expect(canvas.appendChild).toHaveBeenCalledWith(jasmine.anything());
+      expect(canvas.appendChild).toHaveBeenCalledWith(expect.anything());
     });
 
     it('adds resize listeners', () => {
@@ -65,7 +66,7 @@ describe('Renderer', () => {
       renderer.setupPixi();
       expect(renderer.application.renderer.autoResize).toBe(true);
       expect(window.addEventListener.calls.mostRecent().args)
-        .toEqual(['resize', jasmine.any(Function)]);
+        .toEqual(['resize', expect.any(Function)]);
     });
   });
 

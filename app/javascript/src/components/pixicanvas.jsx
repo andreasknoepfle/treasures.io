@@ -1,5 +1,5 @@
 import Renderer from '../canvas/renderer';
-import WorldState from '../world_state';
+import WorldState from '../state/world';
 
 export default {
   props: ['oceans'],

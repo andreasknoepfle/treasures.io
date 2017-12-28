@@ -1,14 +1,14 @@
 import 'pixi.js';
 import Stage from '../../../app/javascript/src/canvas/stage';
 import Keyboard from '../../../app/javascript/src/canvas/keyboard';
-import SpriteHelper from '../../helpers/sprite_helper';
+import SpriteHelper from '../support/sprite_helper';
 
 describe('Stage', () => {
   let stage;
   beforeEach(() => {
     SpriteHelper.mockSprites([]);
-    const worldState = jasmine.createSpyObj('worldState', ['updateWorld']);
-    const worldMap = jasmine.createSpyObj('worldMap', ['update']);
+    const worldState = { updateWorld: jest.fn() };
+    const worldMap = { update: jest.fn() };
     worldState.worldMap = worldMap;
     stage = new Stage(worldState);
     spyOn(stage, 'addChild');

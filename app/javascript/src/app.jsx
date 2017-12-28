@@ -2,7 +2,9 @@ import Vue from 'vue';
 import 'pixi.js';
 import pixicanvas from './components/pixicanvas.jsx';
 import sidebar from './components/sidebar.jsx';
-import { oceanID } from './utils/ocean_helper';
+import { oceanID } from './state/ocean';
+
+Vue.config.productionTip = false;
 
 const vm = new Vue({
   el: '#app',

@@ -1,6 +1,6 @@
 import 'pixi.js';
 import Boat from '../../../app/javascript/src/canvas/boat';
-import SpriteHelper from '../../helpers/sprite_helper';
+import SpriteHelper from '../support/sprite_helper';
 
 const boatSprites = [
   'ship.1.png',
