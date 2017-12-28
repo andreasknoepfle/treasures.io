@@ -24,8 +24,8 @@ RSpec.describe Api::OceansController do
     expect(oceans).to eq %w(ocean ocean ocean ocean)
   end
 
-  it 'calls the ocean with forbidden parameters (< 0 | > 20)' do
-    get :index, params: { limit: '21' }
+  it 'calls the ocean with forbidden parameters (< 0 | > 200)' do
+    get :index, params: { limit: '201' }
     expect(response).to be_bad_request
   end
 end
