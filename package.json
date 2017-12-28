@@ -61,8 +61,6 @@
     "eslint-plugin-import": "^1.16.0",
     "javascript-brunch": "^2.0.0",
     "jest": "^22.0.4",
-    "jsdom": "^9.8.3",
-    "nyc": "^10.1.2",
     "spritesheet-js": "^1.2.2",
     "webpack-dev-server": "^2.9.7"
   },
