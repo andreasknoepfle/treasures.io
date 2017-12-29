@@ -22,7 +22,6 @@ before_install:
 env:
   - CXX=g++-4.9
 install:
-  - yarn run brunch build
   - bundle install
 script:
   - rspec

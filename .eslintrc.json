@@ -15,6 +15,7 @@
   },
   "globals": {
     "PIXI": true,
-    "h": true
+    "h": true,
+    "jest": true
   }
 }

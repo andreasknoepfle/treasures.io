@@ -20,6 +20,6 @@ class Api::OceansController < ApplicationController
   end
 
   def limit_valid?
-    number_of_oceans.between?(0, 20)
+    number_of_oceans.between?(0, 200)
   end
 end
